@@ -1,0 +1,3 @@
+=======[https://russianblogs.com/article/4603857417/
+#количество отказов для заказов, размещенных в течение 10 минут с момента создания.
+sum(rate(requests_error_total{application="springboot-actuator-prometheus-test"}[10m])) / sum(rate(order_request_count_total{application="springboot-actuator-prometheus-test"}[10m])) * 100

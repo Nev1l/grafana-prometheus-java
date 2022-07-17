@@ -1,0 +1,43 @@
+cmd -> powershell.exe
+docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml down
+
+Guide
+https://www.innoq.com/en/blog/prometheus-counters/
+https://habr.com/ru/post/535816/
+https://habr.com/ru/post/475600/
+https://progi.pro/kak-vivesti-metriki-v-prometheus-iz-prilozheniya-java-spring-boot-6462672
+https://grafana.com/docs/grafana/latest/getting-started/getting-started/
+https://habr.com/ru/post/232767/
+
+Prometheus documentation
+https://prometheus.io/docs/concepts/metric_types/
+metric types:
+1. counter - just increasing value
+2. gauge - e.g. (start processing - inc) requests in progress (dec - end of processing) for current time (setToCurrentTime)
+3. summary -
+4. histogram
+
+Prometheus targets
+http://localhost:9090/targets
+
+Prometheus + actuator
+http://localhost:666/actuator/prometheus
+
+Grafana
+http://localhost:3000
+
+=====================[Extra info
+!!!!
+https://recruit.e2ehiring.com/blogs/spring%20boot-prometheus-212
+
+https://habr.com/ru/company/selectel/blog/275803/
+
++AlertManager
+https://russianblogs.com/article/4603857417/
+
+Last read info: Own annotation for profiling!
+https://habr.com/ru/post/535816/
+
+Read about AOP(extract method's arguments for profiling)
+https://overcoder.net/q/154119/%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C-%D0%B0%D1%80%D0%B3%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-spring-aop

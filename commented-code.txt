@@ -1,0 +1,31 @@
+1.]========================[ Some tests with Nullable ]===================
+    /*
+          String str = Optional.ofNullable("Hello")
+                .filter(String::isBlank)
+                .map(String::trim)
+                .orElse("empty String");
+
+        System.out.println(str);
+
+        Predicate<List<String>> approved = (errors) -> CollectionUtils.isEmpty(errors);
+        Predicate<List<String>> error = (errors) -> !CollectionUtils.isEmpty(errors);
+        Predicate<List<String>> verified = (errors) -> !CollectionUtils.isEmpty(errors) && CollectionUtils.containsInstance(errors, "1");
+
+
+        Map<String, Predicate<List<String>>> map = new LinkedHashMap<>();
+        map.put("verifiez", verified);
+        map.put("approved", approved);
+        map.put("error", error);
+
+        var errors = List.of("1");
+
+        String result = map.entrySet().stream()
+                .filter(entry -> entry.getValue().test(errors))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("status can not be identified"));
+
+        System.out.println(result);
+
+     */
+2.]========================[  ]===================
