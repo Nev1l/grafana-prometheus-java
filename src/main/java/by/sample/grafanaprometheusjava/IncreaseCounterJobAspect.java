@@ -25,17 +25,17 @@ public class IncreaseCounterJobAspect {
         this.meterRegistry = meterRegistry;
     }
 
-    @Pointcut("@annotation(by.sample.grafanaprometheusjava.MonitoringIncreaseCounter)")
+    @Pointcut("@annotation(by.sample.grafanaprometheusjava.MonitoringIncreaseCounter)  && !within(IncreaseCounterJobAspect)")
     public void annotated() {
         System.out.println("Pointcut: @MonitoringIncreaseCounter");
     }
 
-    @Before("annotated()")
+    @Before("annotated() && !within(IncreaseCounterJobAspect)")
     public void printAspect(JoinPoint joinPoint) {
         System.out.println("Before: @MonitoringIncreaseCounter " + joinPoint.toString());
     }
 
-    @After("execution(* by.sample.grafanaprometheusjava.OrderService.*(..)) && args(country,paymentMethod,shippingMethod)")
+    @After("execution(* by.sample.grafanaprometheusjava.OrderService.*(..)) && args(country,paymentMethod,shippingMethod)  && !within(IncreaseCounterJobAspect)")
     public void after(JoinPoint joinPoint, String country, String paymentMethod, String shippingMethod) throws Throwable {
         System.out.println("Entering " + joinPoint.getSignature().getDeclaringTypeName() + "#" + joinPoint.getSignature().getName() + "() using arguments: " + Arrays.toString(joinPoint.getArgs()));
         Signature signature = joinPoint.getSignature();

@@ -34,14 +34,14 @@ public class OrderService {
   //@MonitoringIncreaseCounter
   @Scheduled(fixedDelay = 1000)
   public void simulateForDE() {
-    //System.out.println("simulateForDE");
+    //TODO: orderService.simulateNewOrder(..)
     orderService.simulateNewOrder("DE", randomPaymentMethod(), randomShippingMethod());
   }
 
   @Scheduled(fixedDelay = 5000)
   //@MonitoringIncreaseCounter
   public void simulateForAT() {
-    //System.out.println("simulateForAT");
+    //TODO: orderService.simulateNewOrder(..)
     orderService.simulateNewOrder("AT", randomPaymentMethod(), randomShippingMethod());
   }
 
