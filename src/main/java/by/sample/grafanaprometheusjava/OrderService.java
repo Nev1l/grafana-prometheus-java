@@ -50,7 +50,4 @@ public class OrderService {
   public void simulateNewOrder(String country, String paymentMethod, String shippingMethod) {
     System.out.println("simulateNewOrder: " + country + " " + paymentMethod + " " + shippingMethod);
   }
-
-
-
 }

@@ -19,7 +19,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <aspect.version>1.9.7</aspect.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>
@@ -42,6 +42,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.5</version>
+        </dependency>
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -71,12 +76,12 @@
 
     <build>
         <plugins>
-            <plugin>
+           <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.5.5</version>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
@@ -90,10 +95,31 @@
                             <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>-Xlint:all,-processing,-cast,-serial,-try</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
+                    </compilerArgs>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <!-- https://github.com/indrabasak/spring-source-weaving-example/blob/master/README.md -->
-            <plugin>
+            <!--<aspectLibraries>
+                <aspectLibrary>
+                    <groupId>you.own.aspect.libary</groupId>
+                    <artifactId>your-library</artifactId>
+                </aspectLibrary>
+            </aspectLibraries>-->
+            <!--<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
                 <version>1.14.0</version>
@@ -106,18 +132,12 @@
                     <Xlint>ignore</Xlint>
                     <encoding>UTF-8</encoding>
 
-                    <!-- IMPORTANT-->
+                    &lt;!&ndash; IMPORTANT&ndash;&gt;
                     <excludes>
                         <exclude>**/*.java</exclude>
                     </excludes>
                     <forceAjcCompile>true</forceAjcCompile>
                     <sources/>
-                    <!--<aspectLibraries>
-                        <aspectLibrary>
-                            <groupId>you.own.aspect.libary</groupId>
-                            <artifactId>your-library</artifactId>
-                        </aspectLibrary>
-                    </aspectLibraries>-->
                     <weaveDirectories>
                         <weaveDirectory>${project.build.directory}/classes</weaveDirectory>
                     </weaveDirectories>
@@ -134,7 +154,7 @@
                         <id>default-testCompile</id>
                         <phase>process-test-classes</phase>
                         <goals>
-                            <!-- use this goal to weave all your test classes -->
+                            &lt;!&ndash; use this goal to weave all your test classes &ndash;&gt;
                             <goal>test-compile</goal>
                         </goals>
                         <configuration>
@@ -156,8 +176,8 @@
                         <version>${aspect.version}</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
+            </plugin>-->
+             <!--<plugin>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok-maven-plugin</artifactId>
                 <version>1.16.20.0</version>
@@ -174,7 +194,7 @@
                     <sourceDirectory>src/main/java</sourceDirectory>
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
